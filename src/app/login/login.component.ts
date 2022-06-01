@@ -12,11 +12,9 @@ import { JobsService } from '../services/jobs.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  // listLogin : Login[] = [];
    formLogin : FormGroup;
-  login = {
-email: '',
-senha: ''
+    login = {email: '',
+             senha: ''
 
   };
 
@@ -34,15 +32,7 @@ senha: ''
   }
 
  async onSubmit(){
-   try {
-     console.log(this.formLogin)
-     const result = await this.accountService.login(this.login);
-     console.log('Login efetuado: ${result} ');
-     //navegue para a rota vazia novamente
-     this.router.navigate(['']);     
-   }catch(error){
-     console.error(error);
-   }
+  
  }
 
   validarUsuario(event: any){

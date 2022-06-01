@@ -2,6 +2,8 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import { observableToBeFn } from 'rxjs/internal/testing/TestScheduler';
+import { Usuario } from '../interfaces/Usuario';
 
 
 
@@ -41,5 +43,9 @@ export class JobsService {
     }
     const params = new HttpParams().set('usuario', usuario).set('senha', senha);
     return this.http.get(this.myAppUrl + this.myApiUrl + 'getLogin', {params});
+  }
+
+  criarConta(usuario : Usuario): Observable<any>{
+    return this.http.post(this.myAppUrl + this.myApiUrl, usuario);
   }
 }
